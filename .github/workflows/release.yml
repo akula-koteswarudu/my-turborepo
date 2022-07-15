@@ -45,14 +45,14 @@ jobs:
             pwd
             npm publish
           env:
-            NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         - name: Publish package 2
           working-directory: ./packages/package2
           run: |
             pwd
             npm publish
           env:
-            NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         
 
     create-github-release:
