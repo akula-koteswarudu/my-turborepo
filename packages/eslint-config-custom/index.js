@@ -1,3 +1,4 @@
+console.log("hello world")
 module.exports = {
   extends: ["next", "prettier"],
   rules: {
