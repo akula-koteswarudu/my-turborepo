@@ -38,19 +38,16 @@ jobs:
             npm whoami
           env:
             NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
         - name: Publish package 1
           working-directory: ./packages/package1
-          run: lerna publish from-package --yes
+          run: npm publish
           env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         - name: Publish package 2
           working-directory: ./packages/package2
-          run: lerna publish from-package --yes
+          run: npm publish
           env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         
 
