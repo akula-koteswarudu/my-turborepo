@@ -15,6 +15,10 @@ jobs:
           with:
             node-version: '16.x'
             registry-url: 'https://registry.npmjs.org'
+        - name: Authenticate with Registry
+          run: echo "registry=//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          env:
+            NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         - name: Git Identity
           run: |
             git config --global user.name 'github-actions[bot]'
