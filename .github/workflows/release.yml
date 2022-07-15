@@ -23,13 +23,6 @@ jobs:
             git branch
             git checkout main && git pull
 
-        - name: Authenticate with Registry
-          run: |
-            echo "registry=https://registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-            npm whoami
-          env:
-            NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
         - name: Install Packages
           run: yarn install
 
