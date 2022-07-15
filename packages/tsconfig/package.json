@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "main": "index.js",
+  "scripts": {
+    "publish": "npm publish"
+  },
+
   "files": [
     "base.json",
     "nextjs.json",

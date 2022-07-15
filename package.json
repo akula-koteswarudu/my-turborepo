@@ -10,10 +10,12 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "lerna-publish":"lerna publish",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "lerna": "^5.1.8",
     "prettier": "latest",
     "turbo": "latest"
   },
