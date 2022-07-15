@@ -3,6 +3,9 @@
   "version": "1.1.2",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "pub":"npm publish"
+  },
   "publishConfig": {
     "access": "public"
   }
