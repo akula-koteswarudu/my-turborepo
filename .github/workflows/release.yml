@@ -11,10 +11,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: '16.x'
-            registry-url: 'https://registry.npmjs.org'
         - name: Authenticate with Registry
           run: echo "registry=//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
           env:
@@ -25,14 +21,28 @@ jobs:
             git config --global user.email 'github-actions[bot]@users.noreply.github.com'
             git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
           env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        - name: Install and Build 🔧
-          run: | # Install npm packages and build the Storybook files
-              yarn install
-        - name: Publish #Publishes all packages to npm registry
-          run: yarn lerna-publish
+            GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        - name: Checkout and pull branch
+          run: git checkout "${GITHUB_REF:11}" && git pull
+
+        - name: Install Packages
+          run: yarn install
+
+        - name: Authenticate with Registry
+          run: |
+            yarn logout
+            echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
+            echo "registry=http://registry.npmjs.org/" >> .npmrc
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+            npm whoami
           env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        - name: Publish #Publishes all packages to npm registry
+          run: lerna publish --yes --message "chore: release new versions"
+          env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         
 
     create-github-release:
