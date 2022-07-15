@@ -1,6 +1,6 @@
 {
   "name": "@publish/package1",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "main": "index.js",
   "license": "MIT",
   "gitHead": "5d5bd57104a6fb1dccaac0acf8965051727049e8",
