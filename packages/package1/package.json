@@ -1,9 +1,9 @@
 {
   "name": "@publish/package1",
-  "version": "1.0.9",
+  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "gitHead": "5d5bd57104a6fb1dccaac0acf8965051727049e8",
+  "gitHead": "db31ca24517545bfdfbffb2ce3293f1e21213e73",
   "publishConfig": {
     "access": "public"
   }
