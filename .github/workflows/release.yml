@@ -40,14 +40,17 @@ jobs:
             NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
         - name: Publish package 1
-          working-directory: ./packages/package1
-          run: pwd
-          run: npm publish
+          working-directory: ./packages/package1 
+          run: |
+            pwd
+            npm publish
           env:
             NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         - name: Publish package 2
           working-directory: ./packages/package2
-          run: npm publish
+          run: |
+            pwd
+            npm publish
           env:
             NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         
