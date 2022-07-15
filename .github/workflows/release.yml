@@ -38,7 +38,7 @@ jobs:
           env:
             NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         - name: Publish #Publishes all packages to npm registry
-          run: lerna publish --yes --message "chore: release new versions"
+          run: lerna publish --yes
           env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
