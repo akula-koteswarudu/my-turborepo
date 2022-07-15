@@ -1,6 +1,6 @@
 {
   "name": "package2koti",
-  "version": "1.3.4",
+  "version": "1.3.7",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
