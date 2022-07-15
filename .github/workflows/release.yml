@@ -22,8 +22,6 @@ jobs:
             git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
           env:
             GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-        - name: Checkout and pull branch
-          run: git checkout "${GITHUB_REF:11}" && git pull
 
         - name: Install Packages
           run: yarn install
