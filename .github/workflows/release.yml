@@ -15,6 +15,13 @@ jobs:
           with:
             node-version: '16.x'
             registry-url: 'https://registry.npmjs.org'
+        - name: Git Identity
+          run: |
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+            git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         - name: Install and Build 🔧
           run: | # Install npm packages and build the Storybook files
               yarn install
