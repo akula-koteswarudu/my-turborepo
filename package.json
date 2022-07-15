@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "lerna-publish": "lerna pub",
+    "lerna-publish": "lerna run pub",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
