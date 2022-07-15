@@ -1,1 +1,1 @@
-console.log("i am in package 1")
+console.log("i am in package 1 hurray")
